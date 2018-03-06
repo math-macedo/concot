@@ -3,6 +3,10 @@ package concot
 class Categoria {
     String nome 
     
+    // modificando o modo como a representação textual é gerada
+    String toString() {
+        this.nome
+    }
         // constraints : definir as regras de validação paara cada atributo da nossa classe dominínio
         static constraints = {
             nome nullable:false, blank:false, maxSize:128, unique:true 
