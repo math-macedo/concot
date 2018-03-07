@@ -1,9 +1,15 @@
 dataSource {
+    //indica se iremos usar um pool
     pooled = true
+    /*indica que poderemos acompanhar o status da nossa fonte de dados a partir de um cliente
+    JMX */
     jmxExport = true
-    driverClassName = "org.h2.Driver"
-    username = "sa"
-    password = ""
+    // Classe do nosso driver. 
+    driverClassName = "org.postgresql.Driver"
+    // Nome do usuário usado na obtenção de conexão com o banco de dados
+    username = "postgres"
+    // A senha usada durante a obtenção de de conexão com o bando de dados
+    password = "968967"
 }
 hibernate {
     cache.use_second_level_cache = true
@@ -18,8 +24,8 @@ hibernate {
 environments {
     development {
         dataSource {
-            dbCreate = "create-drop" // one of 'create', 'create-drop', 'update', 'validate', ''
-            url = "jdbc:h2:mem:devDb;MVCC=TRUE;LOCK_TIMEOUT=10000;DB_CLOSE_ON_EXIT=FALSE"
+            dbCreate = "update" // one of 'create', 'create-drop', 'update', 'validate', ''
+            url = "jdbc:postgresql://localhost:5432/concot"
         }
     }
     test {
@@ -31,7 +37,7 @@ environments {
     production {
         dataSource {
             dbCreate = "update"
-            url = "jdbc:h2:prodDb;MVCC=TRUE;LOCK_TIMEOUT=10000;DB_CLOSE_ON_EXIT=FALSE"
+            url = "jdbc:postgresql://localhost:5432/concot"
             properties {
                // See http://grails.org/doc/latest/guide/conf.html#dataSource for documentation
                jmxEnabled = true
