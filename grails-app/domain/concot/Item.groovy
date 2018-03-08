@@ -1,10 +1,11 @@
 package concot
+import concot.*
 
 class Item {
     String nome 
     /* belongsTo : relacionamento um para muitos , Item receberá um novo atributo , categoria do tipo
     Categoria , fechando o relacionamento */ 
-    static belongsTo = [categoria:Categoria]
+    static belongsTo = [categoria:Categoria] 
         //constraints : definir as regras de validação paara cada atributo da nossa classe dominínio
         static constraints = {
             nome nullable:false, blank:false, maxSize:128
@@ -12,5 +13,5 @@ class Item {
             de 128 caracteres. */
             categoria nullable:false // não pode ser nulo 
         }
-
+        
 }
